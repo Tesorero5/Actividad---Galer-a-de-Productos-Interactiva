@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/png" sizes="64x64"
+    href="https://res.cloudinary.com/jgmzopn7/image/upload/w_64,h_64,c_fill/v1790387364/Logo_1.png" />
+  <link rel="apple-touch-icon"
+    href="https://res.cloudinary.com/jgmzopn7/image/upload/w_180,h_180,c_fill/v1790387364/Logo_1.png" />
+  <title>Trajes y Disfraces | Galería</title>
+</head>
+
+<body>
+  <header class="top">
+    <div class="top-inner">
+      <img class="logo" src="https://res.cloudinary.com/jgmzopn7/image/upload/v1790387364/Logo_1.png"
+        alt="Logo de Trajes y Disfraces" width="120" height="120" />
+      <div>
+        <h1>Trajes y Disfraces</h1>
+        <p>Toca un traje para verlo en grande y pedirlo por WhatsApp.</p>
+      </div>
+    </div>
+  </header>
+
+  <div class="tools">
+    <div id="filters" class="filters" role="group" aria-label="Categorías"></div>
+
+    <form id="filters-form" class="filters-form" novalidate>
+      <label class="field" for="price-min">Precio mínimo ($)
+        <input id="price-min" type="number" min="0" step="0.01" inputmode="decimal" placeholder="Ej. 5" />
+      </label>
+      <label class="field" for="price-max">Precio máximo ($)
+        <input id="price-max" type="number" min="0" step="0.01" inputmode="decimal" placeholder="Ej. 30" />
+      </label>
+      <label class="field" for="size">Talla
+        <select id="size"></select>
+      </label>
+      <label class="check" for="only-available">
+        <input id="only-available" type="checkbox" /> Solo disponibles
+      </label>
+      <div class="actions">
+        <button type="submit" class="chip solid">Aplicar filtros</button>
+        <button type="button" id="filters-clear" class="chip">Limpiar</button>
+      </div>
+      <p id="price-msg" class="price-msg" role="alert"></p>
+    </form>
+  </div>
+
+  <main>
+    <p id="count" class="count" aria-live="polite"></p>
+    <section id="grid" class="grid"></section>
+    <p id="empty" class="empty" hidden>No hay trajes con estos filtros. Prueba quitando alguno con “Limpiar” o elige
+      “Todos”.</p>
+  </main>
+
+  <dialog id="viewer" class="viewer" aria-label="Detalle del traje">
+    <button id="close" class="icon" aria-label="Cerrar">✕</button>
+    <button id="prev" class="icon nav prev" aria-label="Traje anterior">‹</button>
+    <button id="next" class="icon nav next" aria-label="Traje siguiente">›</button>
+    <figure>
+      <img id="viewer-img" alt="" />
+      <figcaption>
+        <div>
+          <h2 id="viewer-name"></h2>
+          <p id="viewer-cat"></p>
+        </div>
+        <a id="viewer-wa" class="cta" target="_blank" rel="noopener">Preguntar por WhatsApp</a>
+      </figcaption>
+    </figure>
+  </dialog>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+
+</html>
